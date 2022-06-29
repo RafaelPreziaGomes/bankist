@@ -150,6 +150,48 @@ var displaySummary = function (balance, negativeInt, interest) {
   document.querySelector(".summary__value--in").textContent = balance + "€";
 };
 
+//  display movemements
+
+function dispalyMovements(movementType, movementDate, movement) {
+  // External Division
+  var div = document.createElement("div");
+  div.setAttribute("class", "movements__row");
+  document.querySelector(".movements").appendChild(div);
+
+  // Inner div 1
+  var innerDiv1 = document.createElement("div");
+  innerDiv1.setAttribute(
+    "class",
+    "movements__type movements__type--withdrawal"
+  );
+  innerDiv1.innerHTML = movementType;
+  document
+    .querySelectorAll(".movements__row")
+    [document.querySelectorAll(".movements__row").length - 1].appendChild(
+      innerDiv1
+    );
+
+  // Inner div 2
+  var innerDiv2 = document.createElement("div");
+  innerDiv2.setAttribute("class", "movements__date");
+  innerDiv2.innerHTML = movementDate;
+  document
+    .querySelectorAll(".movements__row")
+    [document.querySelectorAll(".movements__row").length - 1].appendChild(
+      innerDiv2
+    );
+
+  // Inner div 3
+  var innerDiv3 = document.createElement("div");
+  innerDiv3.setAttribute("class", "movements__value");
+  innerDiv3.innerHTML = movement;
+  document
+    .querySelectorAll(".movements__row")
+    [document.querySelectorAll(".movements__row").length - 1].appendChild(
+      innerDiv3
+    );
+}
+
 // after the arrow button is pressed
 
 let currentAccount;
